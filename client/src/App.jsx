@@ -42,6 +42,8 @@ const App = () => {
             }
             exact
           />
+          {/* <Route path='/home' element={<Home />} exact />
+          <Route path='/create' element={<CreatePost />} exact /> */}
         </Routes>
       </main>
     </BrowserRouter>
