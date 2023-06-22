@@ -23,6 +23,7 @@ const Login = () => {
         });
         if (response.status === 200) {
           dispatch(setId(apiKey));
+          localStorage.setItem("api_id", apiKey);
           navigate("/home");
         }
       } catch (error) {
