@@ -22,13 +22,16 @@ const CreatePost = () => {
       setLoading(true);
 
       try {
-        const response = await fetch("http://localhost:5000/api/posts", {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify(form),
-        });
+        const response = await fetch(
+          "https://dall-e-lgeb.onrender.com/api/posts",
+          {
+            method: "POST",
+            headers: {
+              "Content-type": "application/json",
+            },
+            body: JSON.stringify(form),
+          }
+        );
 
         await response.json();
         navigate("/home");
@@ -60,13 +63,16 @@ const CreatePost = () => {
     if (form.prompt) {
       try {
         setGenerating(true);
-        const response = await fetch("http://localhost:5000/api/dalle", {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify({ prompt: form.prompt }),
-        });
+        const response = await fetch(
+          "https://dall-e-lgeb.onrender.com/api/dalle",
+          {
+            method: "POST",
+            headers: {
+              "Content-type": "application/json",
+            },
+            body: JSON.stringify({ prompt: form.prompt }),
+          }
+        );
 
         const data = await response.json();
         setForm({ ...form, photo: `data:img/jpeg;base64,${data.photo}` });

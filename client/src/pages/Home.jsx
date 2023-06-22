@@ -21,12 +21,15 @@ const Home = () => {
     const fetchPost = async () => {
       setLoading(true);
       try {
-        const response = await fetch("http://localhost:5000/api/posts", {
-          method: "GET",
-          headers: {
-            "Content-type": "application/json",
-          },
-        });
+        const response = await fetch(
+          "https://dall-e-lgeb.onrender.com/api/posts",
+          {
+            method: "GET",
+            headers: {
+              "Content-type": "application/json",
+            },
+          }
+        );
         if (response.ok) {
           const res = await response.json();
           setAllPost(res.data.reverse());
